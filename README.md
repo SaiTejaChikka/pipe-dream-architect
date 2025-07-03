@@ -2,7 +2,7 @@
 
 A modern, interactive pipeline editor for creating and visualizing Directed Acyclic Graphs (DAGs) built with React, TypeScript, and ReactFlow.
 
-![Pipeline Editor](https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop)
+
 
 ## ✨ Features
 
@@ -26,7 +26,7 @@ A modern, interactive pipeline editor for creating and visualizing Directed Acyc
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd pipeline-editor
+cd pipe-dream-architect
 ```
 
 2. Install dependencies:
@@ -141,8 +141,6 @@ The editor enforces these rules for valid DAGs:
 npm run build
 ```
 
-2. The `dist` folder contains the production-ready files
-3. Deploy to your preferred hosting service (Netlify, Vercel, etc.)
 
 ## 🤝 Contributing
 
