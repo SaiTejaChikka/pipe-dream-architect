@@ -1,73 +1,168 @@
-# Welcome to your Lovable project
+# Pipeline Editor - DAG Visualization Tool
 
-## Project info
+A modern, interactive pipeline editor for creating and visualizing Directed Acyclic Graphs (DAGs) built with React, TypeScript, and ReactFlow.
 
-**URL**: https://lovable.dev/projects/292e78ca-5db1-41a2-92ac-67e1383ed477
+![Pipeline Editor](https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop)
 
-## How can I edit this code?
+## ✨ Features
 
-There are several ways of editing your application.
+- **Interactive Node Creation**: Add custom nodes with descriptive names
+- **Visual Edge Connections**: Drag and drop to create connections between nodes
+- **Real-time DAG Validation**: Instant feedback on graph validity with detailed error messages
+- **Auto Layout**: Intelligent automatic positioning using Dagre layout algorithm
+- **Selection Management**: Multi-select nodes and edges with keyboard shortcuts
+- **Responsive Design**: Clean, modern interface that works on all screen sizes
+- **Production Ready**: Built with TypeScript for type safety and maintainability
 
-**Use Lovable**
+## 🚀 Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/292e78ca-5db1-41a2-92ac-67e1383ed477) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (version 16 or higher)
+- npm or yarn package manager
 
-**Use your preferred IDE**
+### Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd pipeline-editor
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. Install dependencies:
+```bash
+npm install
+```
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open your browser and navigate to `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🎯 Usage
 
-**Use GitHub Codespaces**
+### Creating Nodes
+1. Click the **"Add Node"** button in the sidebar
+2. Enter a descriptive name for your node
+3. Click **"Create Node"** to add it to the canvas
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Connecting Nodes
+1. Hover over a node to see connection handles (circles on left and right)
+2. Drag from the right handle (source) to the left handle (target) of another node
+3. Release to create the connection
 
-## What technologies are used for this project?
+### Managing Elements
+- **Select**: Click on nodes or edges to select them
+- **Multi-select**: Hold Ctrl/Cmd and click multiple elements
+- **Delete**: Select elements and press Delete or Backspace key
+- **Auto Layout**: Click the "Auto Layout" button to organize nodes automatically
 
-This project is built with:
+### Validation
+The editor provides real-time validation with the following rules:
+- Minimum 2 nodes required for a valid DAG
+- All nodes must be connected
+- No cycles allowed (maintains DAG property)
+- Hover over validation status for detailed error information
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🛠️ Technology Stack
 
-## How can I deploy this project?
+- **React 18** - Modern React with hooks and concurrent features
+- **TypeScript** - Type-safe development
+- **ReactFlow** - Powerful flow diagram library
+- **Tailwind CSS** - Utility-first CSS framework
+- **Lucide React** - Beautiful, customizable icons
+- **Dagre** - Graph layout algorithm
+- **Vite** - Fast build tool and development server
 
-Simply open [Lovable](https://lovable.dev/projects/292e78ca-5db1-41a2-92ac-67e1383ed477) and click on Share -> Publish.
+## 📁 Project Structure
 
-## Can I connect a custom domain to my Lovable project?
+```
+src/
+├── components/
+│   ├── CustomNode.tsx          # Custom node component
+│   ├── NodeCreationModal.tsx   # Modal for creating new nodes
+│   ├── PipelineEditor.tsx      # Main editor component
+│   └── ValidationStatus.tsx    # DAG validation display
+├── utils/
+│   ├── autoLayout.ts          # Dagre layout implementation
+│   └── dagValidation.ts       # DAG validation logic
+├── App.tsx                    # Root application component
+├── main.tsx                   # Application entry point
+└── index.css                  # Global styles
+```
 
-Yes, you can!
+## 🎨 Key Components
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### PipelineEditor
+The main component that orchestrates the entire editor experience:
+- Manages node and edge state
+- Handles user interactions
+- Provides toolbar and sidebar functionality
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### CustomNode
+Reusable node component with:
+- Connection handles for creating edges
+- Visual feedback for selection states
+- Hover effects and smooth transitions
+
+### ValidationStatus
+Real-time DAG validation with:
+- Visual status indicators
+- Detailed error tooltips
+- Color-coded feedback system
+
+## ⌨️ Keyboard Shortcuts
+
+- **Delete/Backspace**: Remove selected nodes and edges
+- **Ctrl/Cmd + Click**: Multi-select elements
+
+## 🔧 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 🎯 DAG Validation Rules
+
+The editor enforces these rules for valid DAGs:
+
+1. **Minimum Nodes**: At least 2 nodes required
+2. **Connectivity**: All nodes must be connected via edges
+3. **Acyclic**: No cycles allowed in the graph
+4. **No Self-Loops**: Nodes cannot connect to themselves
+
+## 🚀 Production Deployment
+
+1. Build the project:
+```bash
+npm run build
+```
+
+2. The `dist` folder contains the production-ready files
+3. Deploy to your preferred hosting service (Netlify, Vercel, etc.)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- [ReactFlow](https://reactflow.dev/) for the excellent flow diagram library
+- [Dagre](https://github.com/dagrejs/dagre) for graph layout algorithms
+- [Lucide](https://lucide.dev/) for beautiful icons
+- [Tailwind CSS](https://tailwindcss.com/) for utility-first styling
+
+---
+
+Built with ❤️ using modern web technologies
